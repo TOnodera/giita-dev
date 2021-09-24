@@ -1,6 +1,6 @@
 <template>
     <header>
-        <slot name="header"></slot>
+        <slot name="header"> </slot>
     </header>
     <main>
         <slot name="main"></slot>
@@ -8,21 +8,35 @@
     <footer>
         <slot name="footer"></slot>
     </footer>
-    <sidebar v-model:visible="visibleSidebar"> Sidebar </sidebar>
+    <sidebar
+        :visible="sidebarVisible"
+        @hide-sidebar="hideSidebar"
+        @show-sidebar="showSidebar"
+    ></sidebar>
 </template>
 
 <script>
-import Sidebar from 'primevue/sidebar';
-import { defineComponent } from 'vue';
+import Sidebar from "./Sidebar";
+import { defineComponent } from "vue";
 
 export default defineComponent({
+    emits: ["show-sidebar", "hide-sidebar"],
     components: {
         Sidebar,
     },
-    data() {
-        return {
-            visibleSidebar: true,
-        };
+    props: {
+        sidebarVisible: {
+            requeire: true,
+            type: Boolean,
+        },
+    },
+    methods: {
+        hideSidebar() {
+            this.$emit("hide-sidebar");
+        },
+        showSidebar() {
+            this.$emit("show-sidebar");
+        },
     },
 });
 </script>
