@@ -1,13 +1,13 @@
 <template>
-    <index></index>
+    <base-component></base-component>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import Index from '@/views';
+import BaseComponent from '@/components/BaseComponent.vue';
 export default defineComponent({
     components: {
-        Index,
+        BaseComponent,
     },
 });
 </script>
