@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import Layout from "@/components/Layout";
+import { defineComponent } from 'vue';
+import Layout from '@/components/Layout';
 export default defineComponent({
     components: {
         Layout,

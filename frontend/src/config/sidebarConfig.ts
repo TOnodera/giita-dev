@@ -2,39 +2,39 @@ const sidebarConfig = {
     root: [
         {
             key: '0',
-            label: 'Documents',
+            label: 'メニュー',
             data: 'Documents Folder',
-            icon: 'pi pi-fw pi-inbox',
+            icon: 'pi pi-align-justify',
             children: [
                 {
                     key: '0-0',
-                    label: 'Work',
+                    label: 'Github',
                     data: 'Work Folder',
-                    icon: 'pi pi-fw pi-cog',
+                    icon: 'pi pi-github',
                     children: [
                         {
                             key: '0-0-0',
-                            label: 'Expenses.doc',
-                            icon: 'pi pi-fw pi-file',
+                            label: 'OAuth認証',
+                            icon: 'pi pi-key',
                             data: 'Expenses Document',
                         },
                         {
                             key: '0-0-1',
-                            label: 'Resume.doc',
-                            icon: 'pi pi-fw pi-file',
+                            label: 'エクスプロール',
+                            icon: 'pi pi-eye',
                             data: 'Resume Document',
                         },
                     ],
                 },
                 {
                     key: '0-1',
-                    label: 'Home',
+                    label: 'Qiita',
                     data: 'Home Folder',
                     icon: 'pi pi-fw pi-home',
                     children: [
                         {
                             key: '0-1-0',
-                            label: 'Invoices.txt',
+                            label: '投稿',
                             icon: 'pi pi-fw pi-file',
                             data: 'Invoices for this month',
                         },
@@ -44,75 +44,27 @@ const sidebarConfig = {
         },
         {
             key: '1',
-            label: 'Events',
+            label: 'その他',
             data: 'Events Folder',
-            icon: 'pi pi-fw pi-calendar',
+            icon: 'pi pi-plus',
             children: [
                 {
                     key: '1-0',
-                    label: 'Meeting',
-                    icon: 'pi pi-fw pi-calendar-plus',
+                    label: 'このサイトについて',
+                    icon: 'pi pi-info-circle',
                     data: 'Meeting',
                 },
                 {
                     key: '1-1',
-                    label: 'Product Launch',
-                    icon: 'pi pi-fw pi-calendar-plus',
+                    label: '管理人について',
+                    icon: 'pi pi-user',
                     data: 'Product Launch',
                 },
                 {
                     key: '1-2',
-                    label: 'Report Review',
-                    icon: 'pi pi-fw pi-calendar-plus',
+                    label: 'お問い合わせ',
+                    icon: 'pi pi-envelope',
                     data: 'Report Review',
-                },
-            ],
-        },
-        {
-            key: '2',
-            label: 'Movies',
-            data: 'Movies Folder',
-            icon: 'pi pi-fw pi-star',
-            children: [
-                {
-                    key: '2-0',
-                    icon: 'pi pi-fw pi-star',
-                    label: 'Al Pacino',
-                    data: 'Pacino Movies',
-                    children: [
-                        {
-                            key: '2-0-0',
-                            label: 'Scarface',
-                            icon: 'pi pi-fw pi-video',
-                            data: 'Scarface Movie',
-                        },
-                        {
-                            key: '2-0-1',
-                            label: 'Serpico',
-                            icon: 'pi pi-fw pi-video',
-                            data: 'Serpico Movie',
-                        },
-                    ],
-                },
-                {
-                    key: '2-1',
-                    label: 'Robert De Niro',
-                    icon: 'pi pi-fw pi-star',
-                    data: 'De Niro Movies',
-                    children: [
-                        {
-                            key: '2-1-0',
-                            label: 'Goodfellas',
-                            icon: 'pi pi-fw pi-video',
-                            data: 'Goodfellas Movie',
-                        },
-                        {
-                            key: '2-1-1',
-                            label: 'Untouchables',
-                            icon: 'pi pi-fw pi-video',
-                            data: 'Untouchables Movie',
-                        },
-                    ],
                 },
             ],
         },

@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import Sidebar from "./Sidebar";
-import { defineComponent } from "vue";
+import Sidebar from './Sidebar';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-    emits: ["show-sidebar", "hide-sidebar"],
+    emits: ['show-sidebar', 'hide-sidebar'],
     components: {
         Sidebar,
     },
@@ -32,10 +32,10 @@ export default defineComponent({
     },
     methods: {
         hideSidebar() {
-            this.$emit("hide-sidebar");
+            this.$emit('hide-sidebar');
         },
         showSidebar() {
-            this.$emit("show-sidebar");
+            this.$emit('show-sidebar');
         },
     },
 });
