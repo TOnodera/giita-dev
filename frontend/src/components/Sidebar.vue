@@ -52,3 +52,9 @@ export default defineComponent({
     },
 });
 </script>
+
+<style lang="scss" scoped>
+Button {
+    margin: 5px;
+}
+</style>
