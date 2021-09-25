@@ -5,7 +5,7 @@
         @show-sidebar="showSidebar"
     ></sidebar>
     <Header @menu-click="menuClick" />
-    <main>
+    <main class="main-content">
         <slot name="main"></slot>
     </main>
     <footer>@Copyright {{ copyrightYear }}</footer>
@@ -48,5 +48,8 @@ main {
 }
 footer {
     text-align: center;
+}
+.main-content {
+    margin-top: 50px;
 }
 </style>

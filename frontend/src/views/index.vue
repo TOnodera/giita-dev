@@ -2,15 +2,16 @@
     <div class="parent">
         <div class="child">
             <div class="p-grid">
-                <div class="p-col">
-                    <card class="card">
+                <div class="p-md-6 p-sm-12">
+                    <card class="card card-height">
                         <template #subtitle>
                             効率的に学習内容をアウトプット
-                        </template>
-                        <template #content>
                             <div class="image-icon-wrapper">
                                 <i class="pi pi-users"></i>
                             </div>
+                        </template>
+
+                        <template #content>
                             <p class="text-left">
                                 giitaはgithubと連携してコミット内容をqiitaに簡単に投稿できるサービスです。
                                 コミットした内容をピックアップして学習内容を手軽にみんなとシェアしましょう。
@@ -18,13 +19,15 @@
                         </template>
                     </card>
                 </div>
-                <div class="p-col">
-                    <card class="card">
-                        <template #subtitle> 利用方法 </template>
-                        <template #content>
+                <div class="p-md-6 p-sm-12">
+                    <card class="card card-height">
+                        <template #subtitle>
+                            利用方法
                             <div class="image-icon-wrapper">
                                 <i class="pi pi-chevron-circle-down"></i>
                             </div>
+                        </template>
+                        <template #content>
                             <p class="text-left">
                                 利用にあたってgithubとqiitaのアカウントが必要になります。予め準備して下さい。
                             </p>
@@ -48,7 +51,7 @@
             </div>
             <div class="p-grid">
                 <div class="p-col-12">
-                    <card>
+                    <card class="card">
                         <template #content>
                             <p>
                                 githubとqiitaのアカウントをお持ちの場合はすぐにサービスをご利用いただけます。
@@ -99,13 +102,14 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 70%;
     height: calc(100vh - 50px);
+    margin: 0 auto;
     .child {
-        padding: 100px;
-        width: 60%;
+        padding: 10px;
         text-align: center;
         .image-icon-wrapper {
+            margin-top: 5px;
             i {
                 font-size: 100px;
             }
@@ -113,9 +117,13 @@ export default defineComponent({
     }
 }
 .register-button {
+    margin-top: 5px;
     width: 260px;
 }
 .card {
-    height: 400px;
+    min-width: 300px;
+}
+.card-height {
+    height: 300px;
 }
 </style>
