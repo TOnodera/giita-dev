@@ -4,7 +4,7 @@
         @hide-sidebar="hideSidebar"
         @show-sidebar="showSidebar"
     ></sidebar>
-    <header></header>
+    <Header @menu-click="menuClick" />
     <main>
         <slot name="main"></slot>
     </main>
@@ -12,12 +12,14 @@
 </template>
 
 <script>
+import Header from './Header';
 import Sidebar from './Sidebar';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
     emits: ['show-sidebar', 'hide-sidebar'],
     components: {
+        Header,
         Sidebar,
     },
     props: {
@@ -33,19 +35,14 @@ export default defineComponent({
         showSidebar() {
             this.$emit('show-sidebar');
         },
+        menuClick() {
+            this.$emit('menu-click');
+        },
     },
 });
 </script>
 
 <style lang="scss" scoped>
-header {
-    height: 50px;
-    box-shadow: 1px 0px 1px 1px #000;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-}
 main {
     min-height: 100vh;
 }
