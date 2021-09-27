@@ -7,6 +7,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Index',
         component: Index,
     },
+    /*
     {
         path: '/qiita',
         name: 'Qiita',
@@ -14,8 +15,9 @@ const routes: Array<RouteRecordRaw> = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () =>
-            import(/* webpackChunkName: "about" */ '../views/qiita/index.vue'),
+            import('../views/qiita/index.vue'),
     },
+    */
 ];
 
 const router = createRouter({

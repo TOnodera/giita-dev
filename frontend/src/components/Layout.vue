@@ -45,6 +45,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 main {
     min-height: 100vh;
+    padding: 50px;
 }
 footer {
     text-align: center;
