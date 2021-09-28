@@ -31,7 +31,8 @@
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"jcbuisson.vue",
-		"abusaidm.html-snippets"
+		"abusaidm.html-snippets",
+		"vscode-icons-team.vscode-icons"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
