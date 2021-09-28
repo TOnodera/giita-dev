@@ -1,5 +1,1 @@
-export default class Feeds {
-    setArticles(): boolean {
-        return false;
-    }
-}
+export default class Feeds {}
