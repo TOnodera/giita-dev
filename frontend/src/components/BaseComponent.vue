@@ -3,6 +3,7 @@
         :sidebarVisible="isSidebarVisible"
         @show-sidebar="showSidebar"
         @hide-sidebar="hideSidebar"
+        @menu-click="menuClick"
     >
         <template v-slot:main>
             <router-view />
@@ -33,6 +34,9 @@ export default defineComponent({
         },
         showSidebar() {
             this.sidebarVisible = true;
+        },
+        menuClick() {
+            this.showSidebar();
         },
     },
 });

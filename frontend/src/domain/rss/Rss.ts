@@ -1,0 +1,1 @@
+import Feeds from './Feeds';
