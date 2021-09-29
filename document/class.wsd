@@ -1,17 +1,37 @@
 @startuml
 
-class XmlToJson
+class Main
 
-class Feeds{
+class Items{
     -articles 直近n日分の全てのサイトの記事をセット
-    -setArticles() articlesにRSS情報をセット
-    -sort() articlesを日付降順でソート
-    +get() ソートされたデータを取得 
+    +all() 
 }
 
-class Rss{
-    feeds()
+interface iRss{
+    convert() サイトごとに違う項目名をここで統一する。
 }
+
+class CodeZineRss{
+
+}
+
+class GizModoRss{
+
+}
+
+interface iItems
+
+Main --> iItems : items()
+Items -|> iItems
+Items -> iRss : get()
+
+iRss <|-- CodeZineRss
+iRss <|-- GizModoRss
+
+
+
+
+
 
 
 

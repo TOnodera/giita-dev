@@ -1,10 +1,10 @@
 <template>
     <card>
         <template #header>
-            <img class="article-image" :src="data.headerImage" />
+            <img class="article-image" :src="data.image" />
         </template>
         <template #title> {{ data.title }} </template>
-        <template #content>{{ data.contentText }}</template>
+        <template #content>{{ data.describe }}</template>
     </card>
 </template>
 
