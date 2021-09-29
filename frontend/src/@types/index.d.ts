@@ -1,18 +1,8 @@
 interface Item {
     title: string;
-    enclosure: string | null;
-    image: {
-        url: {
-            _text: string;
-        };
-        title: {
-            _text: string;
-        };
-        link: {
-            _text: string;
-        };
-    };
+    image: string;
     link: string;
+    describe: string;
     pubDate: string;
 }
 

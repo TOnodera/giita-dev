@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { xmlToJson } from '../../domain/helpers/XmlToJson';
 /**
  * RSS取得のテンプレートメソッド
  */
@@ -10,9 +11,10 @@ abstract class Rss {
         this.url = url;
     }
 
-    async items(): Promise<Item[]> {
+    async get(): Promise<Item[]> {
         const xmlString = await this.rss();
-        return this.convert(xmlString);
+        const json = xmlToJson.convert(xmlString);
+        return this.convert(json);
     }
 
     async rss(): Promise<string> {
@@ -20,7 +22,7 @@ abstract class Rss {
         return response.data;
     }
 
-    abstract convert(xmlString: string): Item[];
+    abstract convert(rawItems: any): Item[];
 }
 
 export default Rss;
