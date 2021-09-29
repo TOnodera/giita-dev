@@ -19,10 +19,27 @@
 	"workspaceFolder": "/home/python/app",
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.linting.flake8Enabled": true,
+		"python.linting.lintOnSave": true,
+		"python.formatting.provider": "autopep8",
+		"python.pythonPath":"/usr/local/bin/python",
+		"python.jediEnabled": true,
+		"[python]": {
+			"editor.formatOnSave" : true
+		}
+	},
+
 
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [],
+	"extensions": [
+		"ms-python.python",
+		"mhutchie.git-graph",
+		"ms-python.vscode-pylance",
+		"bibhasdn.django-html",
+		"batisteo.vscode-django"
+	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
