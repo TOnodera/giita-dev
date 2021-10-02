@@ -8,15 +8,22 @@ class TestApp(unittest.TestCase):
         self.assertEqual(True, True)
 
 
-class TestItemList(unittest.TestCase):
+class Testデータの取得と戻り値を返すまで(unittest.TestCase):
     def test_各サイトのRSSを取得できる(self):
         dummy: ItemList = DummyItemList()
         data = dummy.get()
-        self.assertEqual(len(data), 10)
+        dummy_data = dummy.test_data()
+        self.assertEqual(len(data['items']), 20)
+
         index = 0
-        for value in dummy.test_data():
-            self.assertEqual(value['title'], value['title'])
+        for value in data['items']:
+            self.assertEqual(
+                value['title'], dummy_data['items'][index]['title'])
             index += 1
+
+
+class TestItemList(unittest.TestCase):
+    pass
 
 
 if __name__ == '__main__':

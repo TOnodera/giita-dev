@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Run Server",
             "type": "python",
             "request": "launch",
             "program": "/home/python/app/manage.py",
@@ -13,6 +13,17 @@
             "args": [
                 "runserver"
             ]
+        },
+        {
+            "name": "Run Test",
+            "type": "python",
+            "request": "launch",
+            "program": "/home/python/app/api/tests.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-v"
+            ],
+            "port": 8001
         }
     ]
 }
