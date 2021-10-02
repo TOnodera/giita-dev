@@ -1,4 +1,4 @@
-from .items.item import Item
+from .behavior.items.item import Item
 from typing import List
 from urllib import request as httpRequest
 

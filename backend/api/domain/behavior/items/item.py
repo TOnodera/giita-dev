@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self):
+    def __init__(self, title, link, description, pubDate):
         self.title: str
         self.link: str
         self.description: str
