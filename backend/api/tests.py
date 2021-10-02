@@ -15,8 +15,7 @@ class TestItemList(unittest.TestCase):
         self.assertEqual(len(data), 10)
         index = 0
         for value in dummy.test_data():
-            print(value)
-            self.assertEqual(value.title, value.title)
+            self.assertEqual(value['title'], value['title'])
             index += 1
 
 
