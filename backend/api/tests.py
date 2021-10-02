@@ -1,6 +1,6 @@
 import unittest
-from domain.itemlist.item_list import ItemList
-from domain.itemlist.dummy_item_list import DummyItemList
+from domain.item_list import ItemList
+from domain.behavior.dummy_behavior import DummyBehavior
 
 
 class TestApp(unittest.TestCase):
@@ -8,22 +8,12 @@ class TestApp(unittest.TestCase):
         self.assertEqual(True, True)
 
 
-class Testデータの取得と戻り値を返すまで(unittest.TestCase):
+class Testデータの取得(unittest.TestCase):
     def test_各サイトのRSSを取得できる(self):
-        dummy: ItemList = DummyItemList()
+        behavior = DummyBehavior()
+        dummy: ItemList = ItemList(behavior)
         data = dummy.get()
-        dummy_data = dummy.test_data()
         self.assertEqual(len(data['items']), 20)
-
-        index = 0
-        for value in data['items']:
-            self.assertEqual(
-                value['title'], dummy_data['items'][index]['title'])
-            index += 1
-
-
-class TestItemList(unittest.TestCase):
-    pass
 
 
 if __name__ == '__main__':

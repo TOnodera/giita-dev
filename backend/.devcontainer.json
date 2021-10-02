@@ -25,7 +25,7 @@
 		"python.linting.lintOnSave": true,
 		"python.formatting.provider": "autopep8",
 		"python.pythonPath":"/usr/local/bin/python",
-		"python.jediEnabled": true,
+		"python.jediEnabled": false,
 		"[python]": {
 			"editor.formatOnSave" : true
 		}

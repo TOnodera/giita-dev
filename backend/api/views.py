@@ -4,8 +4,8 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from urllib import request as httpRequest
 from .dummy.dummy_rss import loadDummyRss
-from .domain.itemlist.dummy_item_list import DummyItemList
-from rest_framework_xml.renderers import XMLRenderer
+from .domain.behavior.dummy_behavior import DummyBehavior
+from .domain.item_list import ItemList
 import xmltodict
 
 
@@ -37,9 +37,10 @@ class GizmodoRssAPIView(views.APIView):
             return Response({'items': item})
 
 
-class TestRssAPIView(views.APIView):
+class DummyRssAPIView(views.APIView):
     def get(self, request: Request):
-        item_list = DummyItemList()
+        behavior = DummyBehavior()
+        item_list = ItemList(behavior)
         return Response(item_list.get())
 
 
