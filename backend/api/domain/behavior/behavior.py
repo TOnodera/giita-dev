@@ -10,14 +10,5 @@ class Behavior(metaclass=ABCMeta):
         pass
 
     @abstractclassmethod
-    def to_dict(self, raw_data: str) -> dict:
-        pass
-
-    @abstractclassmethod
-    def to_list(self, raw_items: dict) -> List[Item]:
-        pass
-
     def convert(self, raw_data: str) -> List[Item]:
-        raw_items = self.to_dict(raw_data)
-        items = self.to_list(raw_items)
-        return items
+        pass

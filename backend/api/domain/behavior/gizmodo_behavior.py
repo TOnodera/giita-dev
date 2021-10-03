@@ -1,13 +1,13 @@
 
 from typing import List
 from .items.item import Item
-from .items.codezine_item import CodezineItem
+from .items.gizmodo_item import GizmodoItem
 import xmltodict
 
 
-class CodezineBehavior:
+class GizmodoBehavior:
     def __init__(self):
-        self.url = 'https://codezine.jp/rss/new/20/index.xml'
+        self.url = 'https://www.gizmodo.jp/index.xml'
 
     def convert(self, raw_data: str) -> List[Item]:
         raw_items = self._to_dict(raw_data)
@@ -25,7 +25,7 @@ class CodezineBehavior:
     def _to_list(self, raw_items: dict) -> List[Item]:
         list: List[Item] = []
         for raw_item in raw_items:
-            item = CodezineItem(
+            item = GizmodoItem(
                 raw_item['title'], raw_item['link'], raw_item['description'], raw_item['pubDate'])
             list.append(item)
         return list

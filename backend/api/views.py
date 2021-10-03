@@ -5,36 +5,26 @@ from rest_framework.response import Response
 from urllib import request as httpRequest
 from .dummy.dummy_rss import loadDummyRss
 from .domain.behavior.dummy_behavior import DummyBehavior
+from .domain.behavior.codezine_behavior import CodezineBehavior
+from .domain.behavior.gizmodo_behavior import GizmodoBehavior
 from .domain.item_list import ItemList
-import xmltodict
+from .serializers import CodezineSerializer, GizmodoSerializer
 
 
 class CodezineRssAPIView(views.APIView):
-
-    def __init__(self):
-        self.url = 'https://codezine.jp/rss/new/20/index.xml'
-
     def get(self, request: Request):
-        req = httpRequest.Request(self.url)
-        with httpRequest.urlopen(req) as res:
-            body = res.read()
-            xml = xmltodict.parse(body)
-            item = xml['rss']['channel']['item']
-            return Response({'items': item})
+        behavior = CodezineBehavior()
+        item_list = ItemList(behavior)
+        serializer = CodezineSerializer(item_list.get(), many=True)
+        return Response(serializer.data)
 
 
 class GizmodoRssAPIView(views.APIView):
-
-    def __init__(self):
-        self.url = 'https://www.gizmodo.jp/index.xml'
-
     def get(self, request: Request):
-        req = httpRequest.Request(self.url)
-        with httpRequest.urlopen(req) as res:
-            body = res.read()
-            xml = xmltodict.parse(body)
-            item = xml['rss']['channel']['item']
-            return Response({'items': item})
+        behavior = GizmodoBehavior()
+        item_list = ItemList(behavior)
+        serializer = GizmodoSerializer(item_list.get(), many=True)
+        return Response(serializer.data)
 
 
 class DummyRssAPIView(views.APIView):

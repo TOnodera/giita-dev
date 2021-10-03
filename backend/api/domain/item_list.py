@@ -11,5 +11,4 @@ class ItemList():
         req = httpRequest.Request(self.behavior.get_url())
         with httpRequest.urlopen(req) as res:
             body = res.read()
-            items = self.behavior.convert(body)
-            return {'items': items}
+            return self.behavior.convert(body)
