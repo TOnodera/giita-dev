@@ -1,0 +1,37 @@
+name: Build And Push
+
+on:
+  push:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*'
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: giita-backend
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: docker login
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u TOnodera --password-stdin
+
+      - name: Set version
+        id: version
+        run: |
+          VERSION=$(echo ${{ github.ref }} | sed 's/refs\/tags\///g')
+          echo ::set-output name=version::$VERSION
+
+      - name: build
+        run: |
+          docker build -t ghcr.io/tonodera/giita-backend:${{ steps.version.outputs.VERSION }} .
+
+      - name: docker push
+        run: |
+          docker push ghcr.io/tonodera/giita-backend:${{ steps.version.outputs.VERSION }}
+          

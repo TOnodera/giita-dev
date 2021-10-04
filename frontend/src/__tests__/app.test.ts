@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 describe('一覧データ呼び出しまでの流れ', () => {
-    test.todo('個別サイトのRSS一覧を取得');
-    test.todo('個別サイトから取得した一覧データをマージ');
-    test.todo('マージしたデータを日付順にソート');
+    test('codezineのRSSデータを取得', async () => {
+        const codezine = await axios.get('http://backend:8000/api/codezine');
+    });
 });
