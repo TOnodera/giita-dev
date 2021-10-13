@@ -16,4 +16,4 @@ RUN mkdir /socket && touch /socket/app.sock && \
 USER python
 EXPOSE 8000
 
-CMD ["uwsgi","--ini","uwsgi.ini"]
+CMD ["uwsgi","--ini","/home/python/app/uwsgi.ini"]

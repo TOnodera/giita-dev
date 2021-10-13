@@ -8,6 +8,7 @@ services:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./frontend/dist:/usr/share/nginx/html
+      - static-dir:/usr/share/nginx/static
       - ./docker/nginx/uwsgi_params:/etc/nginx/uwsgi_params
       - socket-volume:/socket
     environment:
@@ -17,6 +18,7 @@ services:
     volumes:
       - ./backend:/home/python/app
       - socket-volume:/socket
+      - static-dir:/home/python/app/static
     tty: true
     ports:
       - 8001:8000
@@ -40,3 +42,4 @@ services:
 volumes:
   db-store:
   socket-volume:
+  static-dir:
