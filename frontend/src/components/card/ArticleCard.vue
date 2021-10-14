@@ -1,11 +1,15 @@
 <template>
-    <card>
-        <template #header>
-            <img class="article-image" :src="data.image" />
-        </template>
-        <template #title> {{ data.title }} </template>
-        <template #content>{{ data.describe }}</template>
-    </card>
+    <div class="p-mb-2 p-mt-2">
+        <h2 class="p-text-bold p-mb-2">{{ rssName }}</h2>
+        <card
+            class="p-mb-1 p-mt-1"
+            v-for="(article, index) in articles"
+            :key="index"
+        >
+            <template #subtitle>{{ article.title }}</template>
+            <template #content>{{ article.content }}</template>
+        </card>
+    </div>
 </template>
 
 <script>
@@ -16,17 +20,12 @@ export default defineComponent({
         Card,
     },
     props: {
-        data: {
-            type: Object,
+        articles: {
+            type: Array,
+        },
+        rssName: {
+            type: String,
         },
     },
 });
 </script>
-
-<style lang="scss">
-.article-image {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-}
-</style>
