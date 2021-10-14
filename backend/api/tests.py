@@ -13,8 +13,8 @@ class Testデータの取得(unittest.TestCase):
         behavior = DummyBehavior()
         dummy: ItemList = ItemList(behavior)
         data = dummy.get()
-        self.assertEqual(len(data['items']), 20)
+        self.assertEqual(len(data["items"]), 20)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
