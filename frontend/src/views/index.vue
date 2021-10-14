@@ -1,6 +1,11 @@
 <template>
     <div>
-        <article-card :rssName="rssName" :articles="articles"></article-card>
+        <article-card
+            v-for="(rss, index) in rsses"
+            :key="index"
+            :rssName="rss.rssName"
+            :articles="rss.articles"
+        ></article-card>
     </div>
 </template>
 
@@ -15,26 +20,26 @@ export default defineComponent({
     },
     data() {
         return {
-            rssName: 'codezine',
-            articles: [
+            rsses: [
                 {
-                    title: 'タイトル1',
-                    content: '内容1',
-                },
-                {
-                    title: 'タイトル2',
-                    content: '内容2',
-                },
-                {
-                    title: 'タイトル3',
-                    content: '内容3',
+                    rssName: 'codezine',
+                    articles: [
+                        {
+                            title: 'タイトル1',
+                            content: '内容1',
+                        },
+                        {
+                            title: 'タイトル2',
+                            content: '内容2',
+                        },
+                        {
+                            title: 'タイトル3',
+                            content: '内容3',
+                        },
+                    ],
                 },
             ],
         };
-    },
-    mounted() {
-        //const main = new Main();
-        //this.datas = main.all();
     },
 });
 </script>
