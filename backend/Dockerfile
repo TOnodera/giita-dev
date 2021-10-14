@@ -2,7 +2,7 @@ FROM python:3.9.7-buster
 
 RUN apt-get update && apt-get install -y bash git 
 
-RUN pip install flake8 autopep8 pymysql uwsgi==2.0.19 uwsgitop mysqlclient pyyaml xmltodict \ 
+RUN pip install flake8 black pymysql uwsgi==2.0.19 uwsgitop mysqlclient pyyaml xmltodict \ 
     && pip install Django==3.2.* djangorestframework==3.12.* djangorestframework-xml django-environ drf-yasg
 
 WORKDIR /home/python/app
