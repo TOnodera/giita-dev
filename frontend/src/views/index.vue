@@ -9,10 +9,12 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 import Card from 'primevue/card';
 import ArticleCard from '@/components/card/ArticleCard';
+import axios, { AxiosAdapter } from 'axios';
+
 //import Main from '@/domain/Main';
 export default defineComponent({
     components: {
@@ -20,26 +22,16 @@ export default defineComponent({
     },
     data() {
         return {
-            rsses: [
-                {
-                    rssName: 'codezine',
-                    articles: [
-                        {
-                            title: 'タイトル1',
-                            content: '内容1',
-                        },
-                        {
-                            title: 'タイトル2',
-                            content: '内容2',
-                        },
-                        {
-                            title: 'タイトル3',
-                            content: '内容3',
-                        },
-                    ],
-                },
-            ],
+            rsses: [],
         };
+    },
+    async mounted() {
+        const response = await axios.get('http://localhost:8888/api/codezine');
+        this.rsses.push({
+            rssName: 'コードジーン',
+            articles: response.data,
+        });
+        console.log(this.rsses);
     },
 });
 </script>
