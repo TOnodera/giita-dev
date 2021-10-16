@@ -1,11 +1,18 @@
-import axios, { AxiosAdapter } from 'axios';
+import rssSettings from '@/config/rssSettings';
+import axios from 'axios';
 
 class ApiClient {
-    private url: string;
-    private http: AxiosAdapter;
-    constructor(url: string) {
-        if (!/https?:\/\/[\w!\?/\+\-_~=;\.,\*&@#\$%\(\)'\[\]]+/.test(url)) {
+    async get() {
+        const results = [];
+        for (const setting of rssSettings) {
+            const response = await axios.get(setting.url);
+            results.push({
+                rssName: setting.rssName,
+                articles: response.data,
+            });
         }
-        this.http = axios.create({});
+        return results;
     }
 }
+
+export default ApiClient;

@@ -1,8 +1,7 @@
 <template>
     <div class="p-mb-2 p-mt-2 article-card-wrapper">
-        <h2 class="p-text-bold p-mb-2">{{ rssName }}</h2>
         <card
-            class="p-mb-1 p-mt-1"
+            class="p-mb-1 p-mt-1 p-shadow-5"
             v-for="(article, index) in articles"
             :key="index"
             @click="openPage(article.link)"
@@ -23,9 +22,6 @@ export default defineComponent({
     props: {
         articles: {
             type: Array,
-        },
-        rssName: {
-            type: String,
         },
     },
     methods: {

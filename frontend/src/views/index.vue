@@ -1,37 +1,57 @@
 <template>
-    <div>
-        <article-card
-            v-for="(rss, index) in rsses"
-            :key="index"
-            :rssName="rss.rssName"
-            :articles="rss.articles"
-        ></article-card>
+    <div class="p-grid">
+        <div v-for="(rss, index) in rsses" :key="index" class="p-lg-6 p-md-12">
+            <h2 class="p-text-bold p-mb-2 rss-name">{{ rss.rssName }}</h2>
+            <scroll-panel class="custombar">
+                <article-card :articles="rss.articles"></article-card>
+            </scroll-panel>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Card from 'primevue/card';
-import ArticleCard from '@/components/card/ArticleCard';
-import axios, { AxiosAdapter } from 'axios';
+import ArticleCard from '@/components/card/ArticleCard.vue';
+import ApiClient from '@/domain/ApiClient';
+import ScrollPanel from 'primevue/scrollpanel';
 
-//import Main from '@/domain/Main';
 export default defineComponent({
     components: {
         ArticleCard,
+        ScrollPanel,
     },
     data() {
         return {
-            rsses: [],
+            rsses: [] as any[],
         };
     },
     async mounted() {
-        const response = await axios.get('http://localhost:8888/api/codezine');
-        this.rsses.push({
-            rssName: 'コードジーン',
-            articles: response.data,
-        });
-        console.log(this.rsses);
+        const api = new ApiClient();
+        this.rsses = await api.get();
     },
 });
 </script>
+
+<style lang="scss">
+.rss-name {
+    border-bottom: 1px solid #aaa;
+    padding: 10px;
+}
+
+.custombar {
+    height: 500px;
+    .p-scrollpanel-wrapper {
+        border-right: 9px solid var(--surface-b);
+    }
+
+    .p-scrollpanel-bar {
+        background-color: var(--primary-color) !important;
+        opacity: 1;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #007ad9;
+        }
+    }
+}
+</style>
